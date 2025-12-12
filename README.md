@@ -17,8 +17,8 @@ In order to install, clone the latest version from this repository into your cat
 
 ### Selecting the Backend
 
-This library defines macros to wrap to ROS logger macros or to std::cout calls. 
-The default backend is the ROS logger. 
+This library defines macros to wrap to ROS logger macros or to std::cout calls.
+The default backend is the ROS logger.
 You can enable the usage of std::cout by defining `MELO_USE_COUT` in the `CMakeLists.txt` of your package:
 
 ```
@@ -39,7 +39,7 @@ add_definitions(-DMELO_USE_SENTRY=OFF)
 On top of building message logger with Sentry, you also need to "soft-enable" Sentry with the following ROS parameters
 
 - The feature toggle `/config/feature_toggles/error_reporting` globally sets the global level of error reporting. Set it to `automatic_minimal` or `automatic_full` to enable Sentry.
-- If needed, Sentry can be disabled for specific nodes by setting the "local" parameter `automatic_error_reporting` to `false`.
+- If needed, Sentry can be disabled for specific nodes by setting the "local" parameter `automatic_error_reporting/disable` to `true`.
 
 Note that while it is possible to compile message logger _with_ Sentry but _without_ ROS, Sentry won't be able to read metadata from the ROS parameter server in this case.
 
