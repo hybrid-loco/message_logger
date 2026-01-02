@@ -41,6 +41,9 @@
 #pragma once
 
 #include "message_logger/common/preprocessor_defines.hpp"
+#ifndef ROS2_BUILD
+#cmakedefine01 ROS2_BUILD
+#endif
 
 #ifndef MELO_USE_COUT
 #cmakedefine MELO_USE_COUT

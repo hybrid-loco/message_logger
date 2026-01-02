@@ -171,6 +171,7 @@ foreach(PKG IN LISTS AMENT_PACKAGE_DEPENDENCIES)
 endforeach()
 
 # Configure header file
+set(ROS2_BUILD 1)
 configure_file(include/message_logger/log/log_messages_backend_config.hpp.in
   ${CMAKE_CURRENT_BINARY_DIR}/include/message_logger/log/log_messages_backend_config.hpp @ONLY)
 
@@ -188,6 +189,7 @@ add_library(${PROJECT_NAME} SHARED
 )
 target_include_directories(${PROJECT_NAME} PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+  "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>"
   "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
 )
 ament_target_dependencies(${PROJECT_NAME}
